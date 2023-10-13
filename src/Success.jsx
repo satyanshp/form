@@ -38,6 +38,7 @@ const Success = () => {
               background:'#4AB428',
               textTransform:'none',
               marginTop:'1rem',
+              marginBottom:'2rem',
               '&:hover':{
                 color:'#FFF',
                 background:'#4AB428',

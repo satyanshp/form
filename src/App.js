@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { Button } from "@mui/material";
 import axios from "axios";
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route, useNavigate } from "react-router-dom";
 import Success from "./Success";
 import AllParticitants from "./AllParticitants";
 
@@ -15,7 +15,7 @@ function App() {
     Address: "",
   };
   const [formData, setFormData] = useState(initialState);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const paymentVerification = async (
     razorpay_payment_id,
@@ -39,8 +39,8 @@ function App() {
           withCredentials: true,
         }
       );
-      console.log(data,'runned');
-      navigate('/success',{state:{data}})
+      console.log(data, "runned");
+      navigate("/success", { state: { data } });
     } catch (error) {
       console.log(error);
     }
@@ -101,65 +101,80 @@ function App() {
 
   return (
     <div className="App">
-      <nav style={{marginInline:'auto',fontSize:'2rem',fontWeight:'700',textDecoration:'underline',marginBottom:'2.5rem',textTransform:'uppercase'}}>Chetan Mahila Samiti organising Dandiya Nights</nav>
+      <nav
+        style={{
+          marginInline: "auto",
+          fontSize: "2rem",
+          fontWeight: "700",
+          textDecoration: "underline",
+          marginBottom: "2.5rem",
+          textTransform: "uppercase",
+          color: "green",
+        }}
+      >
+        Chetan Mahila Samiti organising Dandiya Nights
+      </nav>
       <Routes>
-        <Route path="/" element={
-        <Box
-          component="form"
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            gap: "2rem",
-          }}
-          width={{ xs: "100%", sm: "80%", md: "60%" }}
-          autoComplete="off"
-        >
-          <h2 style={{textTransform:'uppercase'}}>Dandiya Night</h2>
-          <TextField
-            id="outlined-basic"
-            onChange={(e) => {
-              setFormData({ ...formData, Name: e.target.value });
-            }}
-            label="Name"
-            variant="outlined"
-          />
-          <TextField
-            id="outlined-basic"
-            onChange={(e) => {
-              setFormData({ ...formData, Contact: e.target.value });
-            }}
-            label="Contact"
-            variant="outlined"
-          />
-          <TextField
-            id="outlined-basic"
-            onChange={(e) => {
-              setFormData({ ...formData, Address: e.target.value });
-            }}
-            label="Address"
-            variant="outlined"
-          />
-          <Button
-            varient="contained"
-            onClick={() => {
-              onSubmit();
-            }}
-            sx={{
-              color:'#FFF',
-              background:'#4AB428',
-              textTransform:'none',
-              '&:hover':{
-                color:'#FFF',
-                background:'#4AB428',
-              }
-            }}
-          >
-            Pay Rs. 100
-          </Button>
-        </Box>
-        }/>
-        <Route path="/success" element={<Success/>}/>
-        <Route path="/data" element={<AllParticitants/>}/>
+        <Route
+          path="/"
+          element={
+            <Box
+              component="form"
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "2rem",
+              }}
+              width={{ xs: "100%", sm: "80%", md: "60%" }}
+              autoComplete="off"
+            >
+              <h2 style={{ textTransform: "uppercase" }}>Dandiya Night</h2>
+              <TextField
+                id="outlined-basic"
+                onChange={(e) => {
+                  setFormData({ ...formData, Name: e.target.value });
+                }}
+                label="Name"
+                variant="outlined"
+              />
+              <TextField
+                id="outlined-basic"
+                onChange={(e) => {
+                  setFormData({ ...formData, Contact: e.target.value });
+                }}
+                label="Contact"
+                variant="outlined"
+              />
+              <TextField
+                id="outlined-basic"
+                onChange={(e) => {
+                  setFormData({ ...formData, Address: e.target.value });
+                }}
+                label="Address"
+                variant="outlined"
+              />
+              <Button
+                varient="contained"
+                onClick={() => {
+                  onSubmit();
+                }}
+                sx={{
+                  color: "#FFF",
+                  background: "#4AB428",
+                  textTransform: "none",
+                  "&:hover": {
+                    color: "#FFF",
+                    background: "#4AB428",
+                  },
+                }}
+              >
+                Pay Rs. 100
+              </Button>
+            </Box>
+          }
+        />
+        <Route path="/success" element={<Success />} />
+        <Route path="/data" element={<AllParticitants />} />
       </Routes>
     </div>
   );
