@@ -102,7 +102,7 @@ function App() {
   return (
     <div className="App">
       <Box component={'nav'}
-      fontSize={{xs:'1.2rem',md:'2rem'}}
+      fontSize={{xs:'1.3rem',md:'2rem'}}
         sx={{
           marginInline: "auto",
           fontWeight: "700",
