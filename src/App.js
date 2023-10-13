@@ -70,7 +70,7 @@ function App() {
       );
 
       const options = {
-        key: "rzp_test_ctqZo5qbJkPhmO",
+        key: "rzp_test_qQGSf2cwBW0c1g",
         amount: order.amount,
         currency: "INR",
         name: "Dandiya",
