@@ -17,14 +17,15 @@ const Success = () => {
       link.click();
     });
   }
+  console.log(location.state.data.user._id)
   return (
     <Box className='success' width={{xs:'80%',md:'50%'}}>
       <img src={done} alt="success" style={{width:'100px'}} />
       <h1 style={{color:'green',marginTop:'0'}}>Booking Success!</h1>
       <Box id='ticket'>
-        <h1>
-          {location.state?.users?._id}
-        </h1>
+        <Box component={'h1'} style={{margin:'0px',width:'100%',textAlign:'center'}} fontSize={{xs:'1rem',md:'1.5rem'}}>
+          {location.state?.data?.user?._id}
+        </Box>
         <img src={ticket} style={{width:'100%'}} alt="Ticket" />
       </Box>
       <Button
