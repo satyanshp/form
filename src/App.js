@@ -112,7 +112,7 @@ function App() {
           color: "green",
         }}
       >
-        Chetan Mahila Samiti organising Dandiya Nights
+        Nav Chetan Mahila Samiti organising Dandiya Nights
       </nav>
       <Routes>
         <Route
