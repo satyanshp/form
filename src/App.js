@@ -4,8 +4,10 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { Button } from '@mui/material';
 import axios from 'axios';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 
 function App() {
+  const navigate = useNavigate()
   const [nameRef,setNameRef] = useState('');
   const [contactRef,setContactRef] = useState('');
   const [addressRef,setAddressRef] = useState('');
@@ -21,7 +23,7 @@ function App() {
     
      try {
       const { data } = await axios.post(
-        `http://localhost:8000/api/v1/paymentverification`,
+        `https://dandiyaevent.onrender.com/api/v1/paymentverification`,
         {
           razorpay_payment_id,
           razorpay_order_id,
@@ -36,6 +38,8 @@ function App() {
         }
        );
        console.log(data);
+       console.log(data,'runned');
+       navigate('/success',{state:{data}})
      } catch (error) {
       console.log(error);
      }
@@ -46,7 +50,7 @@ function App() {
     const {
       data: { order},
     } = await axios.post(
-      `http://localhost:8000/api/v1/create`,
+      `https://dandiyaevent.onrender.com/api/v1/create`,
       {
    
         totalAmount: 100,
