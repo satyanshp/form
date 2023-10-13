@@ -101,10 +101,10 @@ function App() {
 
   return (
     <div className="App">
-      <nav
-        style={{
+      <Box component={'nav'}
+      fontSize={{xs:'1.2rem',md:'2rem'}}
+        sx={{
           marginInline: "auto",
-          fontSize: "2rem",
           fontWeight: "700",
           textDecoration: "underline",
           marginBottom: "2.5rem",
@@ -113,7 +113,7 @@ function App() {
         }}
       >
         Nav Chetan Mahila Samiti organising Dandiya Nights
-      </nav>
+      </Box>
       <Routes>
         <Route
           path="/"
