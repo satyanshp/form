@@ -7,3 +7,7 @@
   display: grid;
   place-items: center;
 }
+
+.table p{
+  width: 20%;
+}

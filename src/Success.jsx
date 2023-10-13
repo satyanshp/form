@@ -23,7 +23,7 @@ const Success = () => {
       <h1 style={{color:'green',marginTop:'0'}}>Booking Success!</h1>
       <Box id='ticket'>
         <h1>
-          {location.state}
+          {location.state?.users?._id}
         </h1>
         <img src={ticket} style={{width:'100%'}} alt="Ticket" />
       </Box>
