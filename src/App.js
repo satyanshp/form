@@ -101,6 +101,7 @@ function App() {
 
   return (
     <div className="App">
+      <nav style={{marginInline:'auto',fontSize:'2rem',fontWeight:'700',textDecoration:'underline',marginBottom:'2.5rem',textTransform:'uppercase'}}>Chetan Mahila Samiti organising Dandiya Nights</nav>
       <Routes>
         <Route path="/" element={
         <Box
