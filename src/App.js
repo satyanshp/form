@@ -1,20 +1,21 @@
-import './App.css';
-import {useState} from 'react'
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
-import { Button } from '@mui/material';
-import axios from 'axios';
+import "./App.css";
+import { useState } from "react";
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
+import { Button } from "@mui/material";
+import axios from "axios";
+import { Routes, Route, useNavigate } from 'react-router-dom';
+import Success from "./Success";
+import AllParticitants from "./AllParticitants";
 
 function App() {
-  const [nameRef,setNameRef] = useState('');
-  const [contactRef,setContactRef] = useState('');
-  const [addressRef,setAddressRef] = useState('');
-
-  const [formData,setFormData] = useState({
-    Name:'',
-    Contact:'',
-    Address:''
-  })
+  const initialState = {
+    Name: "",
+    Contact: "",
+    Address: "",
+  };
+  const [formData, setFormData] = useState(initialState);
+  const navigate = useNavigate()
 
   const paymentVerification = async (
     razorpay_payment_id,
@@ -37,30 +38,36 @@ function App() {
           },
           withCredentials: true,
         }
-       );
-       console.log(data);
-     } catch (error) {
+      );
+      console.log(data,'runned');
+      navigate('/success',{state:{data}})
+    } catch (error) {
       console.log(error);
     }
   };
   const onSubmit = async () => {
-    
-    console.log(formData)
-    const {
-      data: { order},
-    } = await axios.post(
-      `http://localhost:8000/api/v1/create`,
-      {
-   
-        totalAmount: 100,
-      },
-      {
-        headers: {
-          "Content-Type": "application/json",
+    if (
+      formData.Name === "" ||
+      formData.Contact === "" ||
+      formData.Address === ""
+    ) {
+      return;
+    } else {
+      console.log(formData);
+      const {
+        data: { order },
+      } = await axios.post(
+        `https://dandiyaevent.onrender.com/api/v1/create`,
+        {
+          totalAmount: 100,
         },
-        withCredentials: true,
-      }
-    );
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
 
       const options = {
         key: "rzp_test_ctqZo5qbJkPhmO",
